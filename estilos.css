@@ -1,0 +1,579 @@
+*{
+    box-sizing: border-box;/*para q no crezca los espacios*/
+}
+
+/*aqui puedes cambiar el tipo de letra fuente*/
+body{
+    font-family: "Arial";
+    font-size: 13px;
+}
+
+a
+{
+display:inline-block;/*usará el espacio del elemento, no del contenido. */
+}
+
+p
+{color:rgba(66, 0, 0, 0.678);
+}
+
+header
+{
+
+.logo {
+    height: 90px;       /* Esto controla la altura del logo para que encaje en la barra */
+    width: auto;        /* Esto hace que el ancho se ajuste solo y no se deforme */
+    object-fit: contain; /* Asegura que la imagen mantenga su forma original */
+}
+position: fixed;/*posicion fija*/
+top: 0;
+left:0;/*pegado a la izquierda*/
+z-index: 2; /*para que este encima*/
+width: 100%;/*para q ocupe todo el ancho*/
+background-color: rgba(46, 0, 0, 0.801);
+}
+
+header.contenedor
+{ 
+display:flex;/*comportamiento flex aprovecha el espacio de este elemento para acomodar a sus hijos*/
+
+justify-content: space-between; /*alinear al eje x los elenentos se acomodan uno a la iz otro a laderecha*/
+align-items: center;
+}
+
+header .contenedor .logo /*tamaño del logo*/
+{
+width: 150px;
+}
+
+header .contenedor .tienda
+{
+width: 50px;
+}
+
+header .contenedor nav a
+{
+color:rgb(239, 240, 241);
+text-decoration: none;
+margin:10px 5px;
+font-size: 15px;
+font-family: "Montserrat";
+font-weight:bold
+}
+
+header .contenedor nav a:hover
+{
+color:rgb(5, 4, 5);
+
+}
+
+.seccion
+{
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.cuadrado-perfecto
+{
+    width: 100%;
+    padding-bottom: 100%;
+    position:relative;
+    
+}
+.cuadrado-perfecto2
+{
+    width: 100%;
+    /*padding-bottom: 100%;*/
+    
+    
+}
+
+.cuadrado-perfecto img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;/*solo con img*/
+    position:absolute;
+    top:0;
+    left:0;
+}
+.cuadrado-perfecto2 img
+{
+    width: 100%;
+    height: 100%;
+    /*object-fit: cover;/*solo con img*/
+    
+    top:0;
+    left:0;
+}
+.contenedor
+{
+width: 1140px;
+margin: 0 auto 0 auto;/*0 auto*/
+padding-right:15px;
+padding-left: 15px;
+position: relative;
+}
+
+.contenedor-fluid
+{
+    width: 100%;
+    padding-right:15px;
+padding-left: 15px;
+position: relative;
+
+}
+
+.row{
+    display:flex;
+    flex-wrap:wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.fila{
+    display:flex;
+    /*flex-wrap:wrap;*/
+    justify-content: space-between; 
+    margin-right: -60px;
+    margin-left: -15px;
+}
+
+/* Selecciona la columna donde está el menú y lo empuja hacia abajo y al centro */
+header .columna-50:last-child {
+    display: flex;
+    justify-content: center; /* Centra el menú horizontalmente */
+    align-items: flex-end;   /* Baja el menú al fondo de su contenedor */
+    padding-bottom: 10px;    /* Separa un poco el menú del borde inferior si es necesario */
+}
+
+/* Separa los enlaces entre sí */
+nav {
+    display: flex;
+    gap: 25px;               /* Espacio de separación entre cada palabra */
+}
+
+/* Hace las letras más grandes y llamativas */
+nav a {
+    font-size: 22px;         /* Aumenta este número si lo quieres aún más grande */
+    font-weight: bold;       /* Hace la letra más gruesa */
+    text-decoration: none;   /* Quita el subrayado azul por defecto */
+    color: #000000; 
+}
+
+.empujar-50
+{
+    margin-left: 50%;
+
+}
+
+.empujar-58
+{
+    margin-left: 58.33%;
+
+}
+
+.empujar-66
+{
+    margin-left: 66.66%;
+
+}
+
+.empujar-0
+{
+    margin-left: 0;
+    
+}
+
+
+#inicio
+{
+    position: relative;/*el espacio se mantiene*/
+}
+
+#inicio img
+{
+width: 100%;
+display: block;/*no genera espacios a los lados*/
+}
+
+#inicio .bloque-inicio
+{
+position: absolute;/*el espacio no se mantiene no va a ocupar un espacio*/
+top:70%;/*desde arriba hacia la mitad de la pantalla del bloque inicio*/
+left: 30%;
+width: 400px;
+text-align: center;
+margin-left: -200px;
+
+}
+
+#inicio .bloque-inicio h1
+{
+color: white;
+font-size: 35px;
+
+
+}
+
+#inicio .bloque-inicio p
+{
+color: white;
+font-size: 16px;
+
+}
+
+.boton{
+    text-align: center;
+    text-decoration: none;
+    padding: 15px 20px;
+    border:none;
+}
+
+.boton.boton-rojo{
+    color:white;
+    background-color: red;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.boton.boton-verde{
+    color:white;
+    background-color: rgb(199, 62, 115);
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.boton.boton-negro{
+    color:white;
+    background-color: black;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+.boton.boton-negro:hover
+{
+    color:black;
+    background-color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+.boton.boton-blanco{
+    color:red;
+    background-color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: 1px solid red;
+}
+
+
+#nosotros
+{
+   /*background-image: url(img/latas.jpg);*/
+   background-color: rgba(139, 0, 93, 0.925); 
+   background-size: cover;
+   color: white;
+   text-align: center;
+}
+
+#nosotros p
+{
+color: white;
+text-align: center;
+font-size: 16px;
+/*margin:0;*/
+}
+
+/* --- ESTILOS COMPLETO PARA TARJETAS DE HELADOS --- */
+
+/* 1. Fuerza a que la fila ordene las tarjetas una al lado de la otra */
+#servicios .row {
+    display: flex !important;
+    flex-wrap: wrap !important; /* Permite que los helados 4, 5 y 6 bajen a la siguiente fila */
+    justify-content: center !important; /* Centra las tarjetas en la pantalla */
+    gap: 20px !important; /* Añade separación entre tarjetas */
+    width: 100% !important;
+}
+
+/* 2. Controla el tamaño de cada columna (3 por fila) */
+#servicios .columna-33 {
+    flex: 0 0 calc(33.33% - 20px) !important; /* Divide la pantalla en 3 partes exactas */
+    min-width: 280px !important; /* Evita que se encojan demasiado en pantallas chicas */
+    box-sizing: border-box !important;
+}
+
+/* 3. Estilo de la tarjeta rígida (no permite que el texto la estire) */
+.tarjeta-producto {
+    background: #ffffff !important;
+    border: 2px solid #e91e63 !important; /* Borde rosa de tu marca */
+    border-radius: 20px !important;       /* Bordes redondeados como las pizzas */
+    overflow: hidden !important;
+    width: 100% !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* 4. Asegura que la imagen ocupe todo el ancho */
+.contenedor-img img {
+    width: 100% !important;
+    height: 350px !important; /* Altura fija para que todas las fotos midan lo mismo */
+    object-fit: cover !important; /* Recorta la foto proporcionalmente sin deformarla */
+    display: block !important;
+}
+
+/* 5. Contenedor de textos (Obliga al texto a saltar de línea) */
+.info-producto {
+    padding: 15px !important;
+    text-align: left !important;
+    word-wrap: break-word !important; /* Rompe palabras largas si es necesario */
+}
+
+.info-producto h4 {
+    font-size: 18px !important;
+    margin: 0 0 10px 0 !important;
+    color: #3d1d11 !important;
+}
+
+/* 6. CORRECCIÓN DEL TEXTO LARGO */
+.info-producto .descripcion {
+    font-size: 13px !important;
+    color: #666666 !important;
+    margin-bottom: 15px !important;
+    line-height: 1.4 !important;
+    white-space: normal !important; /* 👈 ESTO OBLIGA AL TEXTO A BAJAR Y NO IRSE DE LARGO */
+    display: block !important;
+}
+
+.info-producto .reseñas {
+    font-size: 14px !important;
+    color: #ffb300 !important;
+    margin-bottom: 15px !important;
+}
+
+/* 7. Alineación del precio y botón abajo */
+.compra-footer {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-top: auto !important; /* Empuja el precio al fondo de la tarjeta */
+}
+
+.compra-footer .precio {
+    font-size: 20px !important;
+    font-weight: bold !important;
+    color: #e91e63 !important;
+}
+
+.btn-agregar {
+    background-color: #e91e63 !important;
+    color: white !important;
+    border: none !important;
+    width: 35px !important;
+    height: 35px !important;
+    border-radius: 50% !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+}
+
+
+#servicios .contenedor h3
+{
+    margin-top: 0;
+    font-size:25px;
+
+}
+
+#galeria  h3
+{
+    margin-top: 0;
+    font-size:25px;
+    text-align: center;
+
+}
+
+#contactenos  h3
+{
+    
+    font-size:25px;
+    
+
+}
+
+
+#galeria h4
+{
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    position: absolute;
+    top:40%;
+    color:white;
+    width: 100%;
+
+}
+
+#galeria img
+{
+filter:grayscale(1);
+   width: 100%;
+   height:250px;
+   object-fit: cover;
+   filter: grayscale(1);
+}
+
+#galeria .cuadrado-perfecto:hover img
+{
+    filter:grayscale(0);
+    width: 100%;
+    height: 250%;
+    margin-top: 150px;
+    overflow: hidden;
+}
+
+#galeria .cuadrado-perfecto:hover h4
+{
+   display:none;
+}
+
+.cuadrado-perfecto {
+    width: 100%;
+    height: 250px;
+}
+
+#contactenos
+{
+    position:relative;
+}
+
+#contactenos iframe
+{
+    position:absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    filter:grayscale(1);
+
+}
+
+#contactenos .formu
+{
+padding: 30px;
+background-color: rgb(13, 126, 39);
+border-radius: 20px;
+}
+
+#contactenos .formu .form-blok
+{
+width: 100%;
+margin-bottom: 15px;
+    
+}
+
+#contactenos .formu .form-blok .form-control
+{
+display: block;
+height: 40px;
+font-size:16px;
+border:1px solid grey;
+width:100%;
+padding: 5px 10px;
+border-radius: 10px;
+}
+
+#contactenos .formu .form-blok textarea
+{
+display: block;
+height: 100px;
+font-size:16px;
+border:1px solid grey;
+width:100%;
+padding: 5px 10px;
+border-radius: 10px;
+}
+
+#contactenos .formu .form-blok.bloque-ultimo
+{
+margin-bottom: 0;
+}
+
+footer 
+{
+    background-color: rgb(27, 64, 123);
+    color:white;
+    padding-bottom: 0;
+}
+
+footer .barra-footer
+{
+    background-color: grey;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+footer .barra-desarrollador
+{
+    background-color: rgb(27, 64, 123);
+    text-align: left;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+
+footer ul
+{
+    padding-left: 0;
+    list-style: none;
+
+}
+
+footer ul 
+
+{
+    margin-bottom: 10px;
+
+}
+
+footer .logo-footer
+{
+   width: 100%
+}
+
+footer p
+{
+   color: white;
+   margin-bottom: 30px;
+}
+
+footer a
+{
+   text-decoration: none;
+   color:white;
+}
+
+footer .redes
+{
+   font-size: 30px;
+   display:flex;
+   justify-content: space-between;
+}
+
+footer .redes a
+{
+  margin: 0 7.5px;
+}
+
+footer .redes a :hover
+{
+  
+  transform: translateY(-2px) scale(1.2);
+            color: #52599e;
+}
