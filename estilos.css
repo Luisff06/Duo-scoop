@@ -429,7 +429,6 @@ filter:grayscale(1);
     filter:grayscale(0);
     width: 100%;
     height: 250%;
-    margin-top: 150px;
     overflow: hidden;
 }
 
@@ -576,4 +575,22 @@ footer .redes a :hover
   
   transform: translateY(-2px) scale(1.2);
             color: #52599e;
+}
+/* Esto solo se activará en pantallas de celulares */
+@media (max-width: 768px) {
+    .row {
+        display: flex;
+        flex-direction: column; /* Hace que los productos se pongan uno abajo del otro */
+        align-items: center;
+    }
+
+    .columna-33, .columna-50 {
+        width: 100% !important; /* Obliga a cada producto a usar todo el ancho disponible */
+        margin-bottom: 20px;     /* Les da una separación limpia hacia abajo */
+    }
+
+    .logo-footer, .logo-principal {
+        width: 150px !important; /* Ajusta el tamaño de tus logotipos para que no se encojan */
+        height: auto;
+    }
 }
