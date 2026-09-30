@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Consigue tu Cupón!</title>
+    <link rel="icon" href="img/logo.favicom.png" type="image/png">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #311042 100%); 
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before, body::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 1;
+        }
+        body::before { width: 300px; height: 300px; background: #1877F2; top: 10%; left: 15%; opacity: 0.4; }
+        body::after { width: 250px; height: 250px; background: #c026d3; bottom: 10%; right: 15%; opacity: 0.3; }
+
+        .container { 
+            max-width: 500px; 
+            width: 100%;
+            background: rgba(255, 255, 255, 0.07); 
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 40px 30px; 
+            border-radius: 20px; 
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); 
+            color: #ffffff;
+            text-align: center;
+            z-index: 10;
+        }
+
+        h1 { font-size: 2rem; margin-bottom: 15px; font-weight: 700; letter-spacing: -0.5px; }
+        .subtitle { color: #cbd5e1; font-size: 1rem; margin-bottom: 30px; line-height: 1.5; }
+
+        .step-box {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .step-title { font-size: 1rem; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+
+        .btn-social { 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #1877F2; 
+            color: white; 
+            padding: 14px; 
+            width: 100%;
+            text-decoration: none; 
+            border-radius: 8px; 
+            font-weight: bold; 
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(24, 119, 242, 0.3);
+        }
+        .btn-social:hover { background-color: #166FE5; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(24, 119, 242, 0.4); }
+
+        .btn-verify {
+            background: transparent;
+            color: #ffffff;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            padding: 12px;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        .btn-verify:hover { background: rgba(255, 255, 255, 0.1); border-color: #ffffff; }
+
+        /* Estilos del estado de carga (Verificación) */
+        .loading-box {
+            display: none;
+            margin-top: 25px;
+            color: #f59e0b;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-left-color: #f59e0b;
+            margin: 10px auto;
+            animation: spin 1s linear infinite;
+        }
+
+        /* Contenedor del cupón animado */
+        .coupon-box { 
+            display: none; 
+            margin-top: 25px; 
+            padding: 20px; 
+            border: 2px dashed #4ade80; 
+            background-color: rgba(74, 222, 128, 0.1); 
+            color: #4ade80; 
+            font-size: 1.3rem; 
+            font-weight: bold; 
+            border-radius: 10px;
+            letter-spacing: 1px;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>¡Tu regalo te espera! 🎉</h1>
+    <p class="subtitle">Completa las siguientes interacciones para desbloquear tu beneficio exclusivo.</p>
+    
+    <!-- PASO 1 -->
+    <div class="step-box">
+        <div class="step-title"><span>1.</span> Interactúa en nuestra comunidad</div>
+        <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 12px;">Dale Me Gusta y comenta "QUIERO MI CUPÓN" en nuestro post más reciente:</p>
+        <!-- REEMPLAZA ESTA URL POR TU LINK REAL DE FACEBOOK -->
+        <a href="https://www.facebook.com/profile.php?id=61594665461468" target="_blank" class="btn-social" id="btnInteraccion">
+            Ir a Facebook y Comentar 👍💬
+        </a>
+    </div>
+
+    <!-- PASO 2 -->
+    <div class="step-box">
+        <div class="step-title"><span>2.</span> Reclama tu recompensa</div>
+        <button onclick="iniciarVerificacion()" class="btn-verify" id="btnReclamar">
+            Ya comenté, ver mi cupón ✨
+        </button>
+    </div>
+
+    <!-- Caja de carga oculta temporal -->
+    <div id="cajaCarga" class="loading-box">
+        <div class="spinner"></div>
+        <p>Verificando tu interacción con Facebook...</p>
+    </div>
+</div>
+    <!-- Caja oculta del cupón en cupones.html -->
+    <div id="miCupón" class="coupon-box">
+        <p style="margin-bottom: 15px;">CÓDIGO: DESCUENTO10</p>
+        <a href="index.html" style="display: inline-block; background: #4ade80; color: #0f172a; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-size: 1rem; font-weight: bold; transition: background 0.3s;" onmouseover="this.style.background='#22c55e'" onmouseout="this.style.background='#4ade80'">
+            Volver al Inicio 🏠
+        </a>
+    </div>
+<script>
+// SEGURIDAD: Si no viene del formulario de contacto, lo expulsa inmediatamente
+// Reemplaza "index.html" por el nombre exacto de tu archivo de contacto si es diferente
+if (sessionStorage.getItem('formularioEnviado') !== 'true') {
+    window.location.href = "index.html"; 
+}
+
+function iniciarVerificacion() {
+    // Ocultamos el botón para que no vuelvan a presionarlo
+    document.getElementById('btnReclamar').style.display = 'none';
+    
+    // Mostramos la animación de carga con el texto de "Verificando..."
+    document.getElementById('cajaCarga').style.display = 'block';
+
+    // Creamos una espera de 4 segundos (4000 milisegundos)
+    setTimeout(function() {
+        // Al terminar el tiempo, ocultamos la carga y revelamos el cupón real
+        document.getElementById('cajaCarga').style.display = 'none';
+        document.getElementById('miCupón').style.display = 'block';
+        
+        // Destruimos el token para que si recargan la página tengan que volver a registrarse obligatoriamente
+        sessionStorage.removeItem('formularioEnviado');
+    }, 4000); 
+}
+</script>
+
+</body>
+</html>
